@@ -47,7 +47,7 @@ exl-credit-churn-analysis/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/yourusername/exl-credit-churn-analysis.git
+git clone https://github.com/lokeshloke77/exl-credit-churn-analysis.git
 cd exl-credit-churn-analysis
 ```
 
@@ -130,10 +130,11 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 👨‍💻 Author
 **Your Name**
-- GitHub: [@ylokeshloke77](https://github.com/lokeshloke77)
+- GitHub: [@lokeshloke77](https://github.com/lokeshloke77)
 
 
 ## 🙏 Acknowledgments
 - Dataset: EXL Credit Card Churn Data
 - Libraries: Scikit-learn, Pandas, Streamlit
 - Tools: Python, MySQL, Git#
+
