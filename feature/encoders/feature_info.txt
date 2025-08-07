@@ -1,0 +1,44 @@
+Total Features: 19
+
+All Features:
+- Age
+- Tenure
+- Balance
+- NumOfProducts
+- EstimatedSalary
+- HasCrCard
+- IsActiveMember
+- Engagement_Score
+- Balance_Salary_Ratio
+- Products_Per_Tenure
+- Churn
+- Gender_Male
+- Age_Group_Elderly
+- Age_Group_Middle
+- Age_Group_Senior
+- Age_Group_Young
+- Balance_Category_Low
+- Balance_Category_Medium
+- Balance_Category_No_Balance
+
+Categorical Encoded Features:
+- Gender_Male
+- Age_Group_Elderly
+- Age_Group_Middle
+- Age_Group_Senior
+- Age_Group_Young
+- Balance_Category_Low
+- Balance_Category_Medium
+- Balance_Category_No_Balance
+
+Numerical Features:
+- Age
+- Tenure
+- Balance
+- NumOfProducts
+- EstimatedSalary
+- HasCrCard
+- IsActiveMember
+- Engagement_Score
+- Balance_Salary_Ratio
+- Products_Per_Tenure
