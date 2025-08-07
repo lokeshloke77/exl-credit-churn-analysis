@@ -37,7 +37,9 @@ data/exports/*.csv
 feature/ml/models/*.pkl
 feature/ml/results/*.csv
 feature/ml/plots/*.png
-
+feature/encoders/onehot_encoder.pkl
+aws/ec2_connection.md
+aws/rds_setup.md
 # Logs
 *.log
 
