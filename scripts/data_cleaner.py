@@ -46,25 +46,19 @@ def handle_gender(df):
     
     return df
 def handle_balance(df):
-    # Ensure 'Balance' is numeric, coercing errors to NaN
     df['Balance'] = pd.to_numeric(df['Balance'], errors='coerce')
-    
     df.loc[df['Balance'] < 0, 'Balance'] = 0
-    
-    # Fill missing balance values with median (better than mean for financial data)
-    balance_median = df['Balance'].median()
-    df['Balance'] = df['Balance'].fillna(balance_median)
+    df = handle_outliers_iqr(df, 'Balance')  # Add this line
+    df['Balance'] = df['Balance'].fillna(df['Balance'].median())
     return df
 
 
 #handle estimated salary
 def handle_estimated_salary(df):
-    # Ensure 'EstimatedSalary' is numeric, coercing errors to NaN
     df['EstimatedSalary'] = pd.to_numeric(df['EstimatedSalary'], errors='coerce')
-    # Replace negative salaries with the median salary
     median_salary = df['EstimatedSalary'].median()
     df.loc[df['EstimatedSalary'] < 0, 'EstimatedSalary'] = median_salary
-    # Fill any remaining missing salaries with median
+    df = handle_outliers_iqr(df, 'EstimatedSalary')  # Add this line
     df['EstimatedSalary'] = df['EstimatedSalary'].fillna(median_salary)
     return df
 
@@ -124,6 +118,18 @@ def handle_isactive_member(df):
     df['IsActiveMember'] = df['IsActiveMember'].astype(int)
     return df
 
+def handle_outliers_iqr(df, column):
+    """Remove outliers using IQR method"""
+    Q1 = df[column].quantile(0.25)
+    Q3 = df[column].quantile(0.75)
+    IQR = Q3 - Q1
+    lower = Q1 - 1.5 * IQR
+    upper = Q3 + 1.5 * IQR
+    
+    # Cap outliers
+    df[column] = df[column].clip(lower=lower, upper=upper)
+    return df
+
 def clean_data(file_path):
     df = load_data(file_path)
     df = handle_duplicates(df)
@@ -134,8 +140,9 @@ def clean_data(file_path):
     df = handle_crcard(df)
     df = handle_churn(df)
     df = handle_isactive_member(df)
-    # df = calculate_churn_status(df)
-    # df = add_churn_indicators(df)
+    df = handle_outliers_iqr(df, 'Age')
+    df = handle_outliers_iqr(df, 'Balance')
+    df = handle_outliers_iqr(df, 'EstimatedSalary')
 
     return df
 

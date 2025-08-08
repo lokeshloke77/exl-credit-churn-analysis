@@ -15,14 +15,14 @@ warnings.filterwarnings('ignore')
 from data_loader import load_data
 
 def basic_data_visualization(data='../data/processed/churn_cleaned.csv'):
-    """Minimal ML Pipeline with Feature Engineering and Modeling"""
-    print("=== feature engineering Pipeline ===")
+    """Minimal ML Pipeline with EDA """
+    print("=== EDA ===")
     
     # 1. Load data
     df = load_data(data)
     print(f"Loaded data with shape: {df.shape}")
 
-    #feature engineering 
+   
     # age distribution plot 1
     plt.figure(figsize=(12, 8))
     sns.set_theme(style="whitegrid")  # Updated from sns.set

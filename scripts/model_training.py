@@ -12,11 +12,6 @@ import warnings
 warnings.filterwarnings('ignore')
 from data_loader import load_data
 
-# def load_encoded_data():
-#         df = load_data('../data/processed/churn_features_encoded.csv')
-#         print(f"Encoded data loaded successfully with shape: {df.shape}")
-#         print(f"Features: {list(df.columns)}")
-#         return df
 
 def prepare_features(df):
     """Prepare features for modeling"""
@@ -42,10 +37,10 @@ def train_random_forest_model(X_train, X_test, y_train, y_test):
     
     # Train Random Forest model
     rf_model = RandomForestClassifier(
-        n_estimators=100,
-        max_depth=10,
-        min_samples_split=5,
-        min_samples_leaf=2,
+        n_estimators=200,
+        max_depth=15,
+        min_samples_split=3,
+        min_samples_leaf=1,
         random_state=42
     )
     
